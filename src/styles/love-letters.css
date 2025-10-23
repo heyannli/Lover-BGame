@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Italianno&family=Kalam:wght@300;400;700&display=swap");
+
+:root {
+  --cards: 4;
+  --cardHeight: 87vh;
+  --cardTopPadding: 1.5em;
+  --cardMargin: 4vw;
+
+  --bg-clr: #262621;
+  --text-clr: #f9f9f9;
+  --hover-clr: #bc4749a4;
+
+  --intro-fnt: "Italianno", cursive;
+  --text-fnt: "Kalam", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg-clr);
+  color: var(--text-clr);
+  background-position: fixed;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: start;
+}
+
+header {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  z-index: 2;
+  margin-left: 1rem;
+}
+
+.hero_line {
+  background-color: var(--text-clr);
+  height: 1px;
+  align-self: center;
+  width: 100%;
+  position: absolute;
+}
+
+.hero_intro {
+  background-color: var(--bg-clr);
+  border-radius: 10px;
+  border-left: 1px solid var(--text-clr);
+  border-right: 1px solid var(--text-clr);
+  width: auto;
+  padding: 0 15px;
+  height: 35px;
+  margin-left: 25%;
+
+  font-family: var(--intro-fnt);
+  font-size: 2rem;
+  z-index: 1;
+  text-align: center;
+}
+
+#nav {
+  list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    height: 100%;
+    padding: 12px;
+    gap: .8rem;
+}
+
+a{
+    text-decoration: none;
+    z-index: 1;
+}
+
+.tooltiptext{
+    visibility: hidden;
+    width: 100px;
+    background-color: var(--bg-clr);
+    color: var(--hover-clr);
+    text-align: center;
+    border-radius: 5px 5px 5px 0;
+    padding: 5px 0;
+    top: 1%;
+    left: 9.5%;
+    position: absolute;
+    outline: 2px solid var(--hover-clr);
+}
+
+.tooltip:hover .tooltiptext{
+    visibility: visible;
+}
+
+.too_1{
+    top: 11%;
+    left: 5%;
+    border-radius: 0 5px 5px 5px;
+}
+
+.too_2 {
+    left: 12.5%;
+}
+
+.too_3 {
+    left:15%;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#cards {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+  margin-bottom: var(--cardMargin);
+}
+
+#card1 {
+  --index: 1;
+}
+
+#card2 {
+  --index: 2;
+}
+
+#card3 {
+  --index: 3;
+}
+
+#card4 {
+  --index: 4;
+}
+
+.card {
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+}
+
+.card-body {
+  background-color: #262621;
+  box-sizing: border-box;
+  padding: 10px;
+  gap: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+  height: var(--cardHeight);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+
+  font-family: var(--text-fnt);
+  font-size: 1.2rem;
+
+}
+
+
+
+.content-grid {
+  /* Variables */
+  --padding-inline: 1rem;
+  --content-max-width: 960px;
+  --breakout-max-width: 1200px;
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+
+  padding: 2rem;
+  place-items: center;
+}
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+.content-grid > .full-width {
+  display: grid;
+  grid-column: full-width;
+  grid-template-columns: inherit;
+}
+#brand {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  height: 50px;
+  width: 50px;
+}
+#brand img {
+  height: 100%;
+  width: 100%;
+}
+
+.hero_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 800px;
+
+  font-family: var(--text-fnt);
+  font-size: 1rem;
+}
+
+.hero_header img {
+  width: 180px;
+}
+
+.hero_header span {
+  font-variant: small-caps;
+  color: var(--hover-clr);
+}
